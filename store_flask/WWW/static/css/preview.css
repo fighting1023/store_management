@@ -1,0 +1,43 @@
+ .item_text {
+    flex: 1;
+    background: white;
+  }
+
+  .searchname,
+  .searchgoods {
+    display: inline-block;
+  }
+
+  .uphref {
+    color: #1D9DFE;
+    cursor: pointer;
+  }
+
+  .downline {
+    color: #1D9DFE;
+    cursor: pointer;
+  }
+  .laychannel{
+    color: #1E9FFF;
+    cursor: pointer;
+  }
+  .channelCode{
+    display: none;
+  }
+  .p_blocks{
+    line-height: 30px;
+    padding:5px;
+    display: inline-block;
+    margin-right: 50px;
+  }
+  .product_stock{
+    /*display: none;*/
+  }
+  .hq_stock ,.total, .stock_num{
+    color: red;
+    font-weight: bold;
+  }
+  .addproduct{
+    float:right;
+    color: white;
+  }

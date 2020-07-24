@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">  
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>出入库管理系统</title>
+     <link rel="icon" href="./static/layui/images/logoi.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./static/layui/css/layui.css">
+    <link rel="stylesheet" href="./static/lau/lau.css">
+    <script>(window.top === window.self) || (window.top.location.href = window.self.location.href);</script>
+</head>
+<style>  
+   .logos {
+    color: #ccc;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 95px;
+    line-height: 95px;
+    text-align: center;
+    cursor: pointer;
+    background: #41454B;
+    width:180px;
+}
+.layui-body .layui-tab-title {
+    margin: 0 120px 0 40px;
+    border-bottom-color: #f6f6f6;
+    z-index: 2000;
+    background: white;
+}
+.layui-body .lau-tabs-ctrl{
+  border-top:1px solid #f6f6f6;
+}
+.layui-body .layui-tab {
+    margin: 0;
+    border-top: 1px solid #f6f6f6;
+    background: white;
+}
+.layui-layout-admin .layui-side {
+    top: 95px;
+    width: 179px;
+    border-right: 1px solid #41454B;
+    background-color: #41454B;
+    padding-top:0;
+}
+.layui-body .layui-tab .layui-tab-item {
+    top: 42px;
+}
+
+.this_a{
+  color: #5F97FF !important;
+  border-left:2px solid #5F97FF;
+}
+.cl{
+  background: #5F97FF !important;
+  color: white !important;
+}
+.layui-tab-brief>.layui-tab-title .layui-this {
+    color: #5F97FF;
+}
+.layui-side .lau-nav-item.lau-open .lau-nav-child a:hover {
+  color: #5F97FF !important;
+  border-left:2px solid #5F97FF;
+}
+.layui-icon-refresh-3{
+    width: 61px;
+    border-right: 1px solid #f6f6f6;
+}
+.icons{
+  position: absolute;
+  left:180px;
+  text-align: center;
+  color: #939393;
+  display: flex;
+}
+.layui-tab .layui-tab-title li{
+  position:relative;
+  border-right:1px solid #f6f6f6;
+}
+
+.layui-tab .layui-tab-title li:hover:after{
+  width:100%;
+}
+</style>
+<body class="layui-layout-body layui-unselect">
+<div class="layui-layout layui-layout-admin">
+    <!--顶部导航开始-->
+    <div class="tou" style="height: 60px;width:100%;text-align: center;line-height: 60px;font-size: 20px;color: #757575;font-weight: bold;z-index: 1000px;border-bottom:1px solid #f6f6f6;position: relative;border-bottom: 1px solid #E7EAEE">
+        <div class="icons">
+         
+          <div class="layui-icon lau-tabs-ctrl layui-icon-refresh-3"></div>
+        </div>
+        <span>阳明润泽出入库管理系统</span>
+        <div style="position: absolute;top:0;right: 60px;width:auto;height: 60px;line-height:55px;font-size: 14px;padding-right: 10px;cursor: pointer;border-left: none;">
+            <span style="cursor: pointer;"><span id="ming" style="color: black"></span></span>
+        </div>
+        <div class="printout" style="position: absolute;top:0;right:0;width:auto;height: 60px;line-height: 60px;width:60px;text-align: center;cursor: pointer;border-left: 1px solid #f6f6f6">
+           <img src="./static/layui/images/back.png" alt="">
+        </div>
+        <div class="logos">
+          <img src="./static/layui/images/logo3s.png" alt="" style="width:70%">
+      </div>
+     </div>
+    <!--顶部导航结束-->
+
+    <!--侧边菜单开始-->
+    <div class="layui-side" data-href="" style="z-index: 10001;width:179px">
+      <!-- <div class="lau-side-fold"><i class="layui-icon layui-icon-shrink-right"></i></div> -->
+      <div class="layui-side-scroll">
+          <ul class="layui-nav layui-nav-tree">
+            
+
+          </ul>
+      </div> 
+  </div> 
+    <!--侧边菜单结束-->
+
+    <!--内容主体区域开始-->
+    <div class="layui-body" data-type="" data-title="首页" data-icon="layui-icon-home" data-href="./html/preview.html"></div>
+    <!--  <div class="layui-body getpeople" data-type="" data-title="总部出入库" data-icon="layui-icon-home" data-href="./html/hqstock.html"></div> -->
+    <!--内容主体区域结束-->
+</div>
+</body>
+<script src="./static/js/jquery-1.8.3.min.js"></script> 
+<script src="../static/js/jquery.cookie.js"></script>
+<script src="./static/js/plugins.js"></script>
+<script src="./static/layui/layui.js"></script>
+<script>
+    layui.config({base: './static/'}).extend({lau: 'lau/lau'}).use(['lau'], function () {
+        var lau = layui.lau,
+            layer = layui.layer,
+            $ = layui.$;
+            
+ 
+          //退出
+          $('.printout').click(function(){
+              // plugins.AjaxPlugin({
+              //   url: plugins.realm()+'/logout',
+              //   dataType: 'json',
+              //   action: function (data) {
+              //           window.location.href=plugins.index()+'html/login.html'
+
+              //           $("#xy").fadeOut(200);
+              //   },
+              // })
+              $.removeCookie('username',{ path: '/'});
+              $.removeCookie('power',{ path: '/'});
+              window.location.href='./html/login.html'
+          })  
+
+        
+
+    
+     
+    });
+
+
+</script>
+</html>

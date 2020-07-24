@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css">  -->
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/preview.css">
+</head>
+<style>
+  .layui-col-md4{
+    padding:10px 30px 20px 30px;
+  }
+   .layui-col-md4 .layui-card{
+    border:1px solid #ccc;
+   }
+   .layuiadmin-big-font{
+    font-size: 36px;
+    line-height: 36px;
+   }
+   .layui-icon-flag{
+    float: right;
+   }
+   .layui-card-body{
+    padding:40px 15px 15px 15px;
+   }
+</style>
+  
+
+<body>
+  <div class="layui-fluid" style="padding:0">
+    <div style="padding:5px">
+      <div class="kus">
+        <div>
+          <div class="kuais">
+          <!--   <p class="p_blocks">
+                <span class="stock">所有库存（两个库加起来的和）：</span>
+                <span class="hq_stock">1515151515</span>
+            </p> -->
+            <div class="layui-row">
+               <div class="layui-col-md4">
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                       所有库存
+                       <i class="layui-inline layui-icon layui-icon-flag"></i>
+                     </div>
+                     <div class="layui-card-body layuiadmin-card-list">
+                       <p class="layuiadmin-big-font all"></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="layui-col-md4">
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                       <span class="jshq"></span>库存
+                       <i class="layui-inline layui-icon layui-icon-flag"></i>
+                     </div>
+                     <div class="layui-card-body layuiadmin-card-list">
+                       <p class="layuiadmin-big-font hq"></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="layui-col-md4">
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                       <span class="jszk"></span>库存
+                       <i class="layui-inline layui-icon layui-icon-flag"></i>
+                     </div>
+                     <div class="layui-card-body layuiadmin-card-list">
+                       <p class="layuiadmin-big-font zk"></p>
+                     </div>
+                  </div>
+               </div>
+             </div>
+            <form class="layui-form" action="">
+              <div style="width:200px;display: inline-block; margin-right: 10px;">
+                <input type="hidden" id="seatStock" value="怀柔">
+                <select class="seatStock" lay-filter="seatStock" lay-search="">
+                  
+                </select>
+              </div>
+               
+              
+
+             <span lau-href="./html/addproduct.html" lau-title="添加产品" class="layui-btn layui-btn-normal addproduct laychannel">添加产品</span>
+            </form>
+            
+            
+            
+            
+             <div style="width:100%;margin:0px auto;">
+               <div class="" style="position: relative;">
+                  <div style=" width: 100%;overflow-x: scroll;overflow-y: hidden;white-space: nowrap;"> 
+                     <table class="layui-table layui-table1" style="text-align: center;">
+                         <thead><tr class="tr1"></tr></thead>
+                         <tr class="tr2"></tr>
+                     </table>
+                  </div>
+                 </div>
+              </div>
+          </div>
+           
+          <div class="space"></div>
+
+          <div class="kuais" style="padding-top: 15px;padding-bottom: 5px">
+            <form class="layui-form" action="">
+              
+              <div style="width:200px;display: inline-block; margin-right: 10px;">
+                <input type="hidden" id="searchgoods" value="0">
+                <select class="searchgoods" lay-filter="searchgoods" lay-search="">
+                  <option value="0">请选择产品</option>
+                </select>
+              </div>
+
+              <div style="width:200px;display: inline-block; margin-right: 10px;">
+                <input type="hidden" id="tiaojian" value="0" iptdata="1">
+                <select class="tiaojian" lay-filter="tiaojian" lay-search="">
+                  <option value="0">请选择筛选条件</option>
+                  <option value="1">仅入库</option>
+                  <option value="2">仅出库</option>
+                  <option value="3">有运费</option>
+                  <option value="4">无运费</option>
+                </select>
+              </div>
+              
+              <div style="width:200px;display: inline-block; margin-right: 10px;">
+                <input type="text" class="layui-input" id="date2" readonly="true" placeholder="选择自定义时间">
+                <input type="hidden" class="startdate">
+                <input type="hidden" class="enddate">
+              </div>
+              <span class="layui-btn layui-btn-normal" id="searchAction">查找</span>
+              <span class="layui-btn layui-btn-normal" id="printout" style="float:right">导出</span>
+            </form>
+          </div>
+
+          <div class="kuais" style="position: relative;">
+            <p class="p_blocks table_title">
+                 查询结果
+            </p>
+            <p class="p_blocks">
+              <span>入库合计:<span class="total inTotal"></span></span>
+              <span>出库合计:<span class="total outTotal"></span></span>
+              <span>运费合计:<span class="total fareTotal"></span></span>
+            </p>
+            <div style="">
+              <table class="layui-table layui-table2" style="text-align: center;">
+              </table>
+            </div>
+          </div>
+          <div id="laypage1" style="text-align: center;"></div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</body>
+
+<script src="../static/js/jquery-1.8.3.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script src="../static/js/plugins.js"></script>
+<script>
+   layui.config({base: '../static/'}).extend({common: 'js/common'}).use(['common'], function() {
+    var common = layui.common;
+
+    common.tabNext();
+});
+</script>
+<script>
+  layui.config({
+    base: '../static/js/'
+  }).use('preview');
+
+ $(document).find('.jshq').text(plugins.hqstock)
+ $(document).find('.jszk').text(plugins.zkstock)
+
+</script>
+
+
+</html>

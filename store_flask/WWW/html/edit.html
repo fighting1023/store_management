@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh"> 
+
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css">  -->
+  <link rel="stylesheet" href="../static/css/common.css">
+</head>
+
+<style>
+  .item_text {
+    flex: 1;
+    background: white;
+  }
+
+  .searchname,
+  .searchgoods {
+    display: inline-block;
+  }
+
+  .uphref {
+    color: #1D9DFE;
+    cursor: pointer;
+  }
+
+  .downline {
+    color: #1D9DFE;
+    cursor: pointer;
+  }
+
+  
+
+  #Keep {
+    display: block;
+    width: 100px;
+    border-radius: 2px;
+    margin: 100px 110px;
+  }
+
+  .addimg {
+    height: 150px;
+    width: 150px;
+    border: 1px solid #e6e6e6;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .addimg img {
+    width: 100%;
+    height: 100%;
+  }
+  .layui-form-label{
+    text-align: left;
+  }
+  .nocheck{
+    background: #ccc;
+  }
+  .nocheck:hover{
+    cursor: no-drop;
+  }
+</style>
+
+<body style="padding:15px 0">
+  <div class="layui-fluid">
+    <div>
+      <div style="background: white;width:100%;;padding:15px 20px 0 0">
+        <div>
+          <div>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <label class="layui-form-label">ID</label>
+                <div class="layui-input-block">
+                  <input type="text" required lay-verify="required"
+                    class="layui-input nocheck  ID" autocomplete="off" readonly="true">
+                </div>
+              </div>
+               <div class="layui-form-item">
+                <label class="layui-form-label">产品</label>
+                <div class="layui-input-block">
+                  <input type="text" required lay-verify="required"
+                    class="layui-input  nocheck product_name" autocomplete="off" readonly="true">
+                </div>
+              </div>
+              
+              <div class="layui-form-item">
+                <label class="layui-form-label">日期</label>
+                <div class="layui-input-block">
+                  <!-- <input type="hidden" class="date">
+                  <input type="text" class="layui-input" id="date2" readonly="true" placeholder="选择自定义时间"> -->
+                  <input type="text" required lay-verify="required" readonly="true" placeholder=""
+                    class="layui-input nocheck date" autocomplete="off" value="">
+                </div>
+              </div>
+
+              <div class="layui-form-item">
+                <label class="layui-form-label">操作</label>
+                <div class="layui-input-block">
+                  <input type="hidden" class="out_in">
+                  <input type="text" required lay-verify="required"
+                    class="layui-input nocheck  operate" autocomplete="off" value="0" readonly="true">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">数量</label>
+                <div class="layui-input-block">
+                  <input type="text" required lay-verify="required" placeholder="请输入数量"
+                    class="layui-input num" autocomplete="off" value="0">
+                </div>
+              </div>
+              
+               <
+              
+              <div class="layui-form-item">
+                <label class="layui-form-label">运费</label>
+                <div class="layui-input-block">
+                  <input type="text" required lay-verify="required" placeholder="请输入运费"
+                    class="layui-input fare" autocomplete="off" value="0">
+                </div>
+              </div>
+              <span class="layui-btn layui-btn-normal" id="Keep">提交</span>
+            </form>
+          </div>
+          <table class="layui-table" style="text-align: center;">
+          </table>
+          <div id="laypage1" style="text-align: center;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="../static/js/jquery-1.8.3.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script src="../static/js/plugins.js"></script>
+<script>
+  layui.config({
+    base: '../static/js/'
+  }).use('edit');
+</script>
+<script>
+
+</script>
+
+</html>
