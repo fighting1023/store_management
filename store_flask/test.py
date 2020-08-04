@@ -1,109 +1,305 @@
-# tuples = []
-# for i in [1,2,3,'a','e']:
-#     tuples.append(i)
-# print(tuples)
-# print(tuple(tuples))
-#
-# print('**'*2,'*'*0)
-
-# 向数据库中插入数据
-from main import Store_management
-import random
-import pymysql,logging
-
-
-
-db_name = 'store_management'
-db_user = 'store_manager'
-db_pass = 'store_manager'
-db_ip = '47.105.91.77'
-db_port = 3306
-db = Store_management()
-
-def writeDb(cursor,sql, db_data=()):
-    """
-    连接mysql数据库（写），并进行写的操作
-    """
-
-
-    try:
-        cursor.execute(sql, db_data)
-        conn.commit()
-    except Exception as e:
-        conn.rollback()
-        logging.error('数据写入失败:%s' % e)
-        return False
-
-
-
-# for item in range(200):
-#     # cursor = db.cursor()
-#     year = int(random.uniform(2011, 2020))
-#     month = int(random.uniform(1, 12))
-#     day = int(random.uniform(1, 28))
-#     hour = int(random.uniform(0, 23.5))
-#     minute = int(random.uniform(0, 59.5))
-#     second = int(random.uniform(0, 59.5))
-#
-#     time = str(year) + '-' + str(month) + '-' + str(day) + ' ' + str(hour) + ':' + str(minute) + ':' + str(second)
-#     i = random.randint(0, 1)
-#     j = random.randint(0, 1)
-#     k = random.randint(0, 1)
-#     warehouse = ['怀柔', '中科院'],
-#     out_in = [1, -1],
-#     product = ['羊腿', '猪肉'],
-#     num = random.randint(10, 100)
-#     p = random.randint(0, 4)
-#     people = ['张三', '李四', '王五', '赵六', '钱七'],
-#     cost = random.randint(10, 200) + (random.randint(1, 99)) / 100
-#
-#     # tuples = (warehouse[i],out_in[j],product[k],num,people[p],time,cost)
-#     s =                           (warehouse[i], out_in[j], product[k], num, people[p], time, cost)
-#     # sql = 'insert into warehouse(warehouse_name, out_in, product_name, num, operator, datetime, cost) values ("%s","%d","%s","%d","%s","%s","%2f")' % s
-#     sql = 'insert into warehouse(warehouse_name, out_in, product_name, num, operator, datetime, cost) values ("%s","%d","%s","%d","%s","%s","%2f")'
-#     db.cursor.execute(sql)
-#     db.commit()
-#     print('插入次数:', item)
-#     db.close()
-
-count = 0
-while True:
-    count += 1
-    print(count)
-    if count > 200:
-        break
-
-    year = int(random.uniform(2011, 2020))
-    month = int(random.uniform(10, 12))
-    day = int(random.uniform(10, 28))
-    hour = int(random.uniform(10, 23.5))
-    minute = int(random.uniform(10, 59.5))
-    second = int(random.uniform(10, 59.5))
-
-    time = str(year) + '-' + str(month) + '-' + str(day) + ' ' + str(hour) + ':' + str(minute) + ':' + str(second)
-    i = random.randint(0, 1)
-    print(i)
-    j = random.randint(0, 1)
-    k = random.randint(0, 1)
-    warehouse = ['怀柔', '中科院']
-    out_in = [1, -1]
-    product = ['羊腿', '猪肉']
-    num = random.randint(10, 100)
-    p = random.randint(0, 4)
-    people = ['张三', '李四', '王五', '赵六', '钱七']
-    cost = random.randint(10, 200) + (random.randint(1, 99)) / 100
-
-    # tuples = (warehouse[i],out_in[j],product[k],num,people[p],time,cost)
-    # s = (warehouse[i])
-    s = (warehouse[i], out_in[j], product[k], num, people[p], time, cost)
-    print(s)
-    # sql = 'insert into warehouse(warehouse_name, out_in, product_name, num, operator, datetime, cost) values ("%s","%d","%s","%d","%s","%s","%2f")' % s
-    sql = 'insert into warehouse(warehouse_name, out_in, product_name, num, operator, datetime, cost) values ("%s","%d","%s","%d","%s","%s","%2f")'% ('大红门',1,'肥牛',25,'撒苦辣','2033-12-07 12:45:23',12.34)
-
-
-    result = writeDb(sql, s)
-    # time.sleep(1)
-# finally:
-#     cursor.close()
-#     conn.close()
-# return True
+s = """
+  14
+  15
+  16
+  17
+  18
+  19
+  20
+  21
+  22
+  23
+  24
+  25
+  26
+  27
+  28
+  29
+  30
+  31
+  32
+  33
+  34
+  35
+  36
+  37
+  38
+  39
+  40
+  41
+  42
+  43
+  44
+  45
+  46
+  47
+  48
+  49
+  50
+  51
+  52
+  53
+  54
+  55
+  56
+  57
+  58
+  59
+  60
+  61
+  62
+  63
+  64
+  65
+  66
+  67
+  68
+  69
+  70
+  71
+  72
+  73
+  74
+  75
+  76
+  77
+  78
+  79
+  80
+  81
+  82
+  83
+  84
+  85
+  86
+  87
+  88
+  89
+  90
+  91
+  92
+  93
+  94
+  95
+  96
+  97
+  98
+  99
+ 100
+ 101
+ 102
+ 103
+ 104
+ 105
+ 106
+ 107
+ 108
+ 109
+ 110
+ 111
+ 112
+ 113
+ 114
+ 115
+ 116
+ 117
+ 118
+ 119
+ 120
+ 121
+ 122
+ 123
+ 124
+ 125
+ 126
+ 127
+ 128
+ 129
+ 130
+ 131
+ 132
+ 133
+ 134
+ 135
+ 136
+ 137
+ 138
+ 139
+ 140
+ 141
+ 142
+ 143
+ 144
+ 145
+ 146
+ 147
+ 148
+ 149
+ 150
+ 151
+ 152
+ 153
+ 154
+ 155
+ 156
+ 157
+ 158
+ 159
+ 160
+ 161
+ 162
+ 163
+ 164
+ 165
+ 166
+ 167
+ 168
+ 169
+ 170
+ 171
+ 172
+ 173
+ 174
+ 175
+ 176
+ 177
+ 178
+ 179
+ 180
+ 181
+ 182
+ 183
+ 184
+ 185
+ 186
+ 187
+ 188
+ 189
+ 190
+ 191
+ 192
+ 193
+ 194
+ 195
+ 196
+ 197
+ 198
+ 199
+ 200
+ 201
+ 202
+ 203
+ 204
+ 205
+ 206
+ 207
+ 208
+ 209
+ 210
+ 211
+ 212
+ 213
+ 214
+ 215
+ 216
+ 217
+ 218
+ 219
+ 220
+ 221
+ 222
+ 223
+ 224
+ 225
+ 226
+ 227
+ 228
+ 229
+ 230
+ 231
+ 232
+ 233
+ 234
+ 235
+ 236
+ 237
+ 238
+ 239
+ 240
+ 241
+ 242
+ 243
+ 244
+ 245
+ 246
+ 247
+ 248
+ 249
+ 250
+ 251
+ 252
+ 253
+ 254
+ 255
+ 256
+ 257
+ 258
+ 259
+ 260
+ 261
+ 262
+ 263
+ 264
+ 265
+ 266
+ 267
+ 268
+ 269
+ 270
+ 271
+ 272
+ 273
+ 274
+ 275
+ 276
+ 277
+ 278
+ 279
+ 280
+ 281
+ 282
+ 283
+ 284
+ 285
+ 286
+ 287
+ 288
+ 289
+ 290
+ 291
+ 292
+ 293
+ 294
+ 295
+ 296
+ 297
+ 298
+ 299
+ 300
+ 301
+ 302
+ 303
+ 304
+ 305
+ 306
+ 307
+ 308
+ 309
+ 310
+ 311
+ 312
+ 313
+"""
+with open(s,'r',encoding='utf-8') as s:
+    for line in s.readlines():
+        print(line[:-2])
